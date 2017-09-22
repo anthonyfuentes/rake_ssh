@@ -11,4 +11,11 @@ namespace :ssh do
 		ssh_id.copy_all(ssh_config.hosts)
 	end
 
+	task :show_copy_all, [:config_path] do |_, args|
+		args = args.to_h
+		ssh_config = Ssh::Config.new(args)
+		ssh_id = Ssh::Id.new
+		ssh_id.show_copy_all(ssh_config.hosts)
+	end
+
 end
