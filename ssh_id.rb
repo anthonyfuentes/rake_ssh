@@ -6,7 +6,7 @@ module Ssh
 		def copy_all(hosts)
 			hosts.each do |host|
 				command = self.generate_copy_command(host)
-				exec command
+				system(command)
 			end
 		end
 
