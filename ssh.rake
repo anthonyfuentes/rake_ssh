@@ -1,4 +1,4 @@
-load './ssh.rb'
+load "#{File.dirname(__FILE__)}/ssh.rb"
 
 namespace :ssh do
 
