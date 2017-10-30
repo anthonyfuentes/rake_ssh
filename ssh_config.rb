@@ -4,7 +4,7 @@ module Ssh
 	class Config
 
 		def initialize(args = {})
-			@user = args.fetch(:user, "anthony")
+			@user = args.fetch(:user, ENV["USER"])
 			@file_path = args.fetch(:config_path, "/home/#{@user}/.ssh/config")
 		end
 

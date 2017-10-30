@@ -43,25 +43,24 @@ module Ssh
 			end
 
 			def self.get_name(host_data)
-				host_data.each do |line|
-					if line =~ /^\tHostName\ /
-						return line.gsub(/\tHostName\ /, "")
-					end
-				end
+				field_regex = /^\s+HostName\ /
+				self.get_field(host_data, field_regex)
 			end
 
 			def self.get_user(host_data)
-				host_data.each do |line|
-					if line =~ /^\tUser\ /
-						return line.gsub(/\tUser\ /, "")
-					end
-				end
+				field_regex = /^\s+User\ /
+				self.get_field(host_data, field_regex)
 			end
 
 			def self.get_id_file(host_data)
+				field_regex = /^\s+IdentityFile\ /
+				self.get_field(host_data, field_regex)
+			end
+
+			def self.get_field(host_data, field_regex)
 				host_data.each do |line|
-					if line =~ /^\tIdentityFile\ /
-						return line.gsub(/\tIdentityFile\ /, "")
+					if line.match(field_regex)
+						return line.gsub(field_regex, "")
 					end
 				end
 			end
