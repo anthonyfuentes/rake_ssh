@@ -6,7 +6,7 @@
 Fork and/ or clone this repository
 
 ```
-git clone git@github.com:anthonyfuentes/ssh_copy.git
+git clone git@github.com:anthonyfuentes/rake_ssh.git
 ```
 
 ## Usage
